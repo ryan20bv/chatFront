@@ -2,6 +2,9 @@ import React from "react";
 import ChatItem from "./ChatItem";
 
 const ChatList = ({ chats }) => {
+	if (chats.length === 0 || !chats) {
+		return <div>Chat is empty!</div>;
+	}
 	return (
 		<ul>
 			{chats.map((chat) => (
