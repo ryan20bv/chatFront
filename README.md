@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+-after clone the project this Next JS project:
+1.) npm install
+
 First, run the development server:
 
 ```bash
