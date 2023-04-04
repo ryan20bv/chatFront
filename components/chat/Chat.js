@@ -17,10 +17,14 @@ const Chat = (props) => {
 		const data = await response.json();
 		setOfListOfChats(data);
 	};
+
 	return (
 		<div>
 			<ChatForm onUpdateChats={updateChatList} />
-			<ChatList chats={listOfChats} />
+			<ChatList
+				chats={listOfChats}
+				onUpdateChats={updateChatList}
+			/>
 		</div>
 	);
 };
