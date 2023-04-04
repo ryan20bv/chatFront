@@ -46,25 +46,42 @@ const ChatForm = ({ onUpdateChats }) => {
 		};
 		// console.log(newChat);
 		sendChatToApi(newChat);
+		senderRef.current.value = "";
+		receiverRef.current.value = "";
+		messageRef.current.value = "";
 	};
 
 	return (
 		<form onSubmit={submitHandler}>
-			<input
-				type='text'
-				placeholder='Sender'
-				ref={senderRef}
-			/>
-			<input
-				type='text'
-				placeholder='Receiver'
-				ref={receiverRef}
-			/>
-			<input
-				type='text'
-				placeholder='Message'
-				ref={messageRef}
-			/>
+			<div>
+				<label htmlFor='sender'>Sender</label>
+				<input
+					id='sender'
+					type='text'
+					placeholder='Sender'
+					ref={senderRef}
+				/>
+			</div>
+			<div>
+				<label htmlFor='receiver'>receiver</label>
+
+				<input
+					id='receiver'
+					type='text'
+					placeholder='Receiver'
+					ref={receiverRef}
+				/>
+			</div>
+			<div>
+				<label htmlFor='message'>Message</label>
+
+				<input
+					id='message'
+					type='text'
+					placeholder='Message'
+					ref={messageRef}
+				/>
+			</div>
 			<button type='submit'>Send</button>
 		</form>
 	);
