@@ -15,7 +15,7 @@ const ChatForm = ({ onUpdateChats }) => {
 			body: JSON.stringify(chatData),
 		};
 		const response = await fetch(url, options);
-		console.log(response);
+		// console.log(response);
 		if (response.ok) {
 			onUpdateChats();
 		}
