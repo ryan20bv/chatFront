@@ -1,13 +1,18 @@
-import React, { FormEvent, useRef } from "react";
+import React, { FormEvent, useRef, useEffect, useState } from "react";
+import io from "socket.io-client";
+import { Socket } from "socket.io-client";
+import { DefaultEventsMap } from "socket.io/dist/typed-events";
 
 interface propsType {
-	onUpdateChats: () => void;
+	socket: Socket<DefaultEventsMap, DefaultEventsMap>;
 }
 
-const ChatForm: React.FC<propsType> = ({ onUpdateChats }) => {
+const ChatForm: React.FC<propsType> = ({ socket }) => {
 	const senderRef = useRef(null);
 	const receiverRef = useRef(null);
 	const messageRef = useRef(null);
+	const [messages, setMessages] = useState([]);
+	const [whoIsTyping, setWhoIsTyping] = useState("");
 
 	const sendChatToApi = async (chatData) => {
 		const url = "/api/chatNext";
@@ -19,10 +24,17 @@ const ChatForm: React.FC<propsType> = ({ onUpdateChats }) => {
 			body: JSON.stringify(chatData),
 		};
 		const response = await fetch(url, options);
-		// console.log(response);
+		const data = await response.json();
+		console.log(data);
 		if (response.ok) {
-			onUpdateChats();
+			chatData._id = data.data._id;
+			socket.emit("message", chatData);
 		}
+
+		// console.log(response);
+		// if (response.ok) {
+		// 	onUpdateChats();
+		// }
 	};
 
 	const submitHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -48,6 +60,7 @@ const ChatForm: React.FC<propsType> = ({ onUpdateChats }) => {
 			receiver: receiverInput,
 			message: messageInput,
 		};
+		socket.emit("chatMessage", messageInput);
 		// console.log(newChat);
 		sendChatToApi(newChat);
 		senderRef.current.value = "";

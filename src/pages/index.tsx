@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
+
 import Chat from "../components/chat/Chat";
+
 import styles from "../styles/Home.module.css";
 import { IChats } from "../typesFile/chatType";
 

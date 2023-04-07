@@ -6,10 +6,9 @@ import { IChat } from "../../typesFile/chatType";
 
 interface prosType {
 	chat: IChat;
-	onUpdateChats: () => void;
 }
 
-const ChatItem: React.FC<prosType> = ({ chat, onUpdateChats }) => {
+const ChatItem: React.FC<prosType> = ({ chat }) => {
 	const sendDeleteRequestToAPI = async (chatId: string) => {
 		const url = `/api/chatNext/${chatId}`;
 
@@ -18,10 +17,6 @@ const ChatItem: React.FC<prosType> = ({ chat, onUpdateChats }) => {
 		};
 
 		const response = await fetch(url, options);
-
-		if (response.ok) {
-			onUpdateChats();
-		}
 	};
 	const deleteHandler = (id: string) => {
 		// console.log(id);
@@ -33,7 +28,7 @@ const ChatItem: React.FC<prosType> = ({ chat, onUpdateChats }) => {
 				<p>Sender: {chat.sender}</p>
 				<p>Receiver: {chat.receiver}</p>
 				<p>Message: {chat.message}</p>
-				<button onClick={() => deleteHandler(chat._id)}>delete</button>
+				{/* <button onClick={() => deleteHandler(chat._id)}>delete</button> */}
 			</div>
 		</li>
 	);
