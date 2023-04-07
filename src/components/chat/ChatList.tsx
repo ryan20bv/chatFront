@@ -1,14 +1,16 @@
 import React from "react";
 import ChatItem from "./ChatItem";
 
-import { IChat } from "@/typesFile/chatType";
+import { IChat } from "../../typesFile/chatType";
+import { Socket } from "socket.io-client";
+import { DefaultEventsMap } from "socket.io/dist/typed-events";
 
 interface prosType {
 	chats: IChat[];
-	onUpdateChats: () => void;
+	socket: Socket<DefaultEventsMap, DefaultEventsMap>;
 }
 
-const ChatList: React.FC<prosType> = ({ chats, onUpdateChats }) => {
+const ChatList: React.FC<prosType> = ({ chats }) => {
 	if (chats.length === 0 || !chats) {
 		return <div>Chat is empty!</div>;
 	}
@@ -18,7 +20,6 @@ const ChatList: React.FC<prosType> = ({ chats, onUpdateChats }) => {
 				<ChatItem
 					key={chat._id}
 					chat={chat}
-					onUpdateChats={onUpdateChats}
 				/>
 				// <li key={chat._id}>
 				// 	<p>Sender: {chat.sender}</p>
