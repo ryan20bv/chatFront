@@ -1,7 +1,7 @@
 import React from "react";
 import ChatItem from "./ChatItem";
 
-import { IChat } from "@/typesFile/chatType";
+import { IChat } from "../../typesFile/chatType";
 
 interface prosType {
 	chats: IChat[];
