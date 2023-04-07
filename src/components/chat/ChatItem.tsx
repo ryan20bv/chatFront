@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "./chatStyles/chatItem.module.scss";
 
-import { IChat } from "@/typesFile/chatType";
+import { IChat } from "../../typesFile/chatType";
 
 interface prosType {
 	chat: IChat;
