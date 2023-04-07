@@ -1,7 +1,14 @@
 import React from "react";
 import ChatItem from "./ChatItem";
 
-const ChatList = ({ chats, onUpdateChats }) => {
+import { IChat } from "@/typesFile/chatType";
+
+interface prosType {
+	chats: IChat[];
+	onUpdateChats: () => void;
+}
+
+const ChatList: React.FC<prosType> = ({ chats, onUpdateChats }) => {
 	if (chats.length === 0 || !chats) {
 		return <div>Chat is empty!</div>;
 	}
