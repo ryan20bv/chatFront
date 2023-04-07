@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { FormEvent, useRef } from "react";
 
-const ChatForm = ({ onUpdateChats }) => {
-	const senderRef = useRef();
-	const receiverRef = useRef();
-	const messageRef = useRef();
+interface propsType {
+	onUpdateChats: () => void;
+}
+
+const ChatForm: React.FC<propsType> = ({ onUpdateChats }) => {
+	const senderRef = useRef(null);
+	const receiverRef = useRef(null);
+	const messageRef = useRef(null);
 
 	const sendChatToApi = async (chatData) => {
 		const url = "/api/chatNext";
@@ -21,7 +25,7 @@ const ChatForm = ({ onUpdateChats }) => {
 		}
 	};
 
-	const submitHandler = (e) => {
+	const submitHandler = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const senderInput = senderRef.current.value;
 		const receiverInput = receiverRef.current.value;

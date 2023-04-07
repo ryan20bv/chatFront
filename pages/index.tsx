@@ -1,8 +1,12 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import Head from "next/head";
-import Chat from "@/components/chat/Chat";
-import styles from "@/styles/Home.module.css";
-const HomePage = ({ data }) => {
+import Chat from "../components/chat/Chat";
+import styles from "../styles/Home.module.css";
+import { IChats } from "@/typesFile/chatType";
+
+import { GetStaticProps } from "next";
+
+const HomePage: React.FC<IChats> = ({ chats }) => {
 	return (
 		<Fragment>
 			<Head>
@@ -19,13 +23,13 @@ const HomePage = ({ data }) => {
 			<main className={styles.main}>
 				<div>
 					<h1>Home Page</h1>
-					<Chat chats={data} />
+					<Chat chats={chats} />
 				</div>
 			</main>
 		</Fragment>
 	);
 };
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async (context) => {
 	const url = "http://localhost:3000/api/chatNext";
 	const options = {
 		method: "GET",
@@ -38,9 +42,9 @@ export async function getStaticProps(context) {
 	const data = await response.json();
 	// console.log(data);
 	return {
-		props: { data }, // will be passed to the page component as props
+		props: { chats: data }, // will be passed to the page component as props
 		revalidate: 10, // In seconds
 	};
-}
+};
 
 export default HomePage;

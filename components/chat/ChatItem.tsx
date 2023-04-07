@@ -1,7 +1,16 @@
 import React from "react";
+
 import classes from "./chatStyles/chatItem.module.scss";
-const ChatItem = ({ chat, onUpdateChats }) => {
-	const sendDeleteRequestToAPI = async (chatId) => {
+
+import { IChat } from "@/typesFile/chatType";
+
+interface prosType {
+	chat: IChat;
+	onUpdateChats: () => void;
+}
+
+const ChatItem: React.FC<prosType> = ({ chat, onUpdateChats }) => {
+	const sendDeleteRequestToAPI = async (chatId: string) => {
 		const url = `/api/chatNext/${chatId}`;
 
 		const options = {
@@ -14,7 +23,7 @@ const ChatItem = ({ chat, onUpdateChats }) => {
 			onUpdateChats();
 		}
 	};
-	const deleteHandler = (id) => {
+	const deleteHandler = (id: string) => {
 		// console.log(id);
 		sendDeleteRequestToAPI(id);
 	};
