@@ -1,33 +1,16 @@
 import React from "react";
-import ChatItem from "./ChatItem";
+import ChatForm from "./ChatForm";
+import classes from "./styleChat/chatList.module.scss";
 
-import { IChat } from "../../typesFile/chatType";
-import { Socket } from "socket.io-client";
-import { DefaultEventsMap } from "socket.io/dist/typed-events";
-
-interface prosType {
-	chats: IChat[];
-	socket: Socket<DefaultEventsMap, DefaultEventsMap>;
-}
-
-const ChatList: React.FC<prosType> = ({ chats }) => {
-	if (chats.length === 0 || !chats) {
-		return <div>Chat is empty!</div>;
-	}
+const ChatList = () => {
 	return (
-		<ul>
-			{chats.map((chat) => (
-				<ChatItem
-					key={chat._id}
-					chat={chat}
-				/>
-				// <li key={chat._id}>
-				// 	<p>Sender: {chat.sender}</p>
-				// 	<p>Receiver: {chat.receiver}</p>
-				// 	<p>Message: {chat.message}</p>
-				// </li>
-			))}
-		</ul>
+		<section className={classes.chat_list}>
+			<div className={classes.list_chat}>ChatList chat</div>
+
+			<div className={classes.list_form}>
+				<ChatForm />
+			</div>
+		</section>
 	);
 };
 

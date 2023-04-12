@@ -1,19 +1,13 @@
 import React from "react";
-import Chat from "./Chat";
-import styles from "./chatStyles/Home.module.scss";
-import { IChats } from "../../typesFile/chatType";
+import ChatDrawer from "./ChatDrawer";
+import ChatSection from "./ChatSection";
+import classes from "./styleChat/chatMain.module.scss";
 
-interface propsType {
-	chatData: IChats;
-}
-
-const ChatMain: React.FC<propsType> = ({ chatData }) => {
+const ChatMain = () => {
 	return (
-		<main className={styles.main}>
-			<div>
-				<h1>Home Page</h1>
-				<Chat chats={chatData} />
-			</div>
+		<main className={classes.chatMain}>
+			<ChatDrawer />
+			<ChatSection />
 		</main>
 	);
 };

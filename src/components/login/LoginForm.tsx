@@ -1,10 +1,17 @@
-import React from "react";
+import React, { FormEvent } from "react";
+import { useRouter } from "next/router";
 import classes from "./stylesLogin/loginForm.module.scss";
 
 const LoginForm = () => {
+	const router = useRouter();
+
+	const submitFormHandler = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		router.replace("/chat");
+	};
 	return (
 		<section className={classes.loginForm}>
-			<form>
+			<form onSubmit={submitFormHandler}>
 				<input
 					type='email'
 					id='email'
