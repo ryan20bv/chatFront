@@ -6,10 +6,10 @@ const HomePage = () => {
 	return (
 		<Fragment>
 			<Head>
-				<title>Simple Chat</title>
+				<title>Chat - Log in</title>
 				<meta
 					name='description'
-					content='Simple Chat app'
+					content='Chat Log in and registration'
 				/>
 				<meta
 					name='viewport'
