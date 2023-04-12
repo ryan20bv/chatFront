@@ -1,0 +1,16 @@
+.mainNav {
+	border: solid 1px red;
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5rem 1rem;
+	background-color: #fff;
+	nav {
+		ul {
+			display: flex;
+			list-style-type: none;
+			li {
+				margin: 0 10px;
+			}
+		}
+	}
+}
