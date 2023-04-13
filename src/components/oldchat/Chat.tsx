@@ -3,11 +3,15 @@ import ChatList from "./ChatList";
 import ChatForm from "./ChatForm";
 import io from "socket.io-client";
 
-import { IChats } from "../../typesFile/chatType";
+import { IChat } from "../../typesFile/chatType";
+
+interface propsType {
+	chats: IChat[];
+}
 
 const socket = io("http://localhost:5000");
 
-const Chat: React.FC<IChats> = (props) => {
+const Chat: React.FC<propsType> = (props) => {
 	const [listOfChats, setOfListOfChats] = useState(props.chats);
 
 	useEffect(() => {
