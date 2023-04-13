@@ -1,6 +1,5 @@
 import React from "react";
 import LoginForm from "./LoginForm";
-// import classes from "./stylesLogin/login.module.scss";
 
 const Login = () => {
 	return (

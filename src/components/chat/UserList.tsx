@@ -1,31 +1,27 @@
 import React from "react";
-import Image from "next/image";
-import classes from "./styleChat/userList.module.scss";
+
+import UserItem from "./UserItem";
 
 const UserList = () => {
 	return (
-		<section className={classes.user_list}>
-			<div>
-				<Image
-					src='/'
-					alt='image'
-					width={100}
-					height={100}
-				/>
-
-				<h5>user name</h5>
-			</div>
-			<div>
-				<Image
-					src='/'
-					alt='image'
-					width={100}
-					height={100}
-				/>
-
-				<h5>user name</h5>
-			</div>
-		</section>
+		// <section className={classes.user_list}>
+		<ul className=''>
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+			<UserItem />
+		</ul>
 	);
 };
 

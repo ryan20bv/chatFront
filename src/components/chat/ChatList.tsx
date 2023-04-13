@@ -1,16 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ChatForm from "./ChatForm";
-import classes from "./styleChat/chatList.module.scss";
 
 const ChatList = () => {
 	return (
-		<section className={classes.chat_list}>
-			<div className={classes.list_chat}>ChatList chat</div>
-
-			<div className={classes.list_form}>
-				<ChatForm />
-			</div>
-		</section>
+		<Fragment>
+			<section className='w-full border border-black bg-slate-300 h-4/6 rounded-t-xl'>
+				<div className=''>ChatList chat</div>
+			</section>
+			<ChatForm />
+		</Fragment>
 	);
 };
 

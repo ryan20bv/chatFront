@@ -12,7 +12,7 @@ const LoginForm = () => {
 	return (
 		// <section className={classes.loginForm}>
 		<section
-			className={`border border-black p-4 sm:w-96 w-11/12 rounded-lg  ${classes.loginForm}`}
+			className={`border border-black p-4 sm:w-96  w-11/12 rounded-lg  ${classes.loginForm}`}
 		>
 			<form
 				onSubmit={submitFormHandler}
