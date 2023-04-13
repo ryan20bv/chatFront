@@ -2,25 +2,20 @@ import React from "react";
 
 import UserItem from "./UserItem";
 
-const UserList = () => {
+import { IPersonalData } from "../../typesFile/chatType";
+interface propsType {
+	userData: IPersonalData[];
+}
+const UserList: React.FC<propsType> = ({ userData }) => {
 	return (
 		// <section className={classes.user_list}>
 		<ul className=''>
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
-			<UserItem />
+			{userData.map((user) => (
+				<UserItem
+					key={user._id}
+					user={user}
+				/>
+			))}
 		</ul>
 	);
 };
