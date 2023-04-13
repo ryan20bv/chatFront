@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
 	/* --font-roboto: ui-monospace, monospace; */
 	--color-light-blue: #b5f1cc;
