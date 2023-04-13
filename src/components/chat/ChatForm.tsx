@@ -9,9 +9,8 @@ const ChatForm = () => {
 				id=''
 				// cols={30}
 				rows={5}
-			>
-				message here
-			</textarea>
+				placeholder='message here!'
+			></textarea>
 			<button>SEND</button>
 		</form>
 	);

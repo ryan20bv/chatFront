@@ -1,15 +1,21 @@
 .chat_form {
-	border: solid 1px red;
+	// border: solid 1px red;
+	border-radius: 0 0 5px 5px;
 	background-color: #fff;
 	height: 100%;
 	display: flex;
+	// overflow: hidden;
 	// width: 100%;
 	textarea {
 		width: 90%;
 		height: 100%;
 		padding: 10px;
+		border-radius: 0 0 0 5px;
 	}
 	button {
 		width: 10%;
+		border-radius: 0 0 5px 0;
+		background-color: rgb(42, 131, 231);
+		border-color: rgb(42, 131, 231);
 	}
 }
