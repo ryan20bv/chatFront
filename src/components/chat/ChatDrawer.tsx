@@ -1,4 +1,5 @@
 import React from "react";
+import UserList from "./UserList";
 import classes from "./styleChat/chatDrawer.module.scss";
 const ChatDrawer = () => {
 	return (
@@ -15,7 +16,9 @@ const ChatDrawer = () => {
 					placeholder='Find user'
 				/>
 			</section>
-			<section className={classes.list}>List of users</section>
+			<section className={classes.list}>
+				<UserList />
+			</section>
 		</main>
 	);
 };
