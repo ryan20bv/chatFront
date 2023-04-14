@@ -13,13 +13,13 @@ const DummyPerson = {
 const ChatItem = () => {
 	return (
 		<li className='my-3'>
-			<div className=' border  border-red-600 w-3/4 flex'>
+			<div className=' border border-red-600 w-3/4 flex rounded-xl p-1'>
 				<Image
 					src={`/images/avatar/${DummyPerson.avatarUrl}`}
 					alt='image'
 					width={100}
 					height={100}
-					className='rounded-full w-12 h-12'
+					className='rounded-full w-10 h-10'
 				/>
 				<p className='ml-3'>
 					hi asd ad ad asd asdada sd asdasd ad ad asd as ad as ad asd asd asd a sas

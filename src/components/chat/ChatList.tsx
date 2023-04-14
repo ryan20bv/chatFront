@@ -7,7 +7,7 @@ const ChatList = () => {
 	return (
 		<Fragment>
 			<section className='w-full border border-black bg-slate-300 h-4/6 rounded-t-xl'>
-				<ul className='border	border-black mx-4 h-full overflow-y-scroll'>
+				<ul className=' mx-4 h-full overflow-y-scroll'>
 					<ChatItem />
 					<ChatItem />
 					<ChatItem />
