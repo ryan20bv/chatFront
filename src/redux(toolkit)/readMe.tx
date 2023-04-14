@@ -1,0 +1,6 @@
+npm install @reduxjs/toolkit
+npm install react-redux
+npm install --save @types/react-redux
+
+create indexStore.tsx
+create slice

@@ -1,11 +1,12 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import Layout from "../components/layout/Layout";
+import { Provider as ReduxProvider } from "react-redux";
+import indexStore from "../redux(toolkit)/store/indexStore";
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
 	return (
-		<Fragment>
+		<ReduxProvider store={indexStore}>
 			<Head>
 				<title>Next Chat</title>
 				<meta
@@ -22,6 +23,6 @@ export default function App({ Component, pageProps }) {
 				/>
 			</Head>
 			<Component {...pageProps} />
-		</Fragment>
+		</ReduxProvider>
 	);
 }
