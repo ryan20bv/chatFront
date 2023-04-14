@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ChatDrawer from "./ChatDrawer";
 import ChatSection from "./ChatSection";
-import { IPersonalData } from "../../typesFile/chatType";
-interface propsType {
-	userData: IPersonalData[];
-}
+import { useAppDispatch } from "../../redux(toolkit)/store/indexStore";
+import { loadUserListsAction } from "../../redux(toolkit)/chat/chat-Action/chatAction";
 
-const ChatMain: React.FC<propsType> = ({ userData }) => {
+const ChatMain = () => {
+	const dispatch = useAppDispatch();
+	useEffect(() => {
+		dispatch(loadUserListsAction());
+	}, [dispatch]);
 	return (
 		<main className='flex w-screen h-screen py-4 bg-green-300'>
-			<ChatDrawer userData={userData} />
+			<ChatDrawer />
 			<ChatSection />
 		</main>
 	);

@@ -4,3 +4,4 @@ npm install --save @types/react-redux
 
 create indexStore.tsx
 create slice
+set up redux toolkit boiler

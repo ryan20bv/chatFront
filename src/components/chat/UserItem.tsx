@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { useAppDispatch } from "../../redux(toolkit)/store/indexStore";
+import { updateChattingWithAction } from "../../redux(toolkit)/chat/chat-Action/chatAction";
 import { IPersonalData } from "../../typesFile/chatType";
 
 interface propsType {
@@ -7,8 +9,15 @@ interface propsType {
 }
 
 const UserItem: React.FC<propsType> = ({ user }) => {
+	const dispatch = useAppDispatch();
+	const selectToChatWithHandler = () => {
+		dispatch(updateChattingWithAction(user));
+	};
 	return (
-		<li className='flex items-start mb-3'>
+		<li
+			className='flex items-start mb-3'
+			onClick={selectToChatWithHandler}
+		>
 			<Image
 				src={`/images/avatar/${user.avatarUrl}`}
 				alt='image'
