@@ -1,27 +1,38 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
+import { useRouter } from "next/router";
+import {
+	useAppDispatch,
+	useAppSelector,
+	RootState,
+} from "../../redux(toolkit)/store/indexStore";
+import { loadUserListsAction } from "../../redux(toolkit)/chat/chat-Action/chatAction";
 import ChatMain from "../../components/chat/ChatMain";
 
-import { getAllDummyData } from "../../dummyData/DUMMY_DATA";
-import { IPersonalData } from "../../typesFile/chatType";
+const ChatPage = (props) => {
+	const router = useRouter();
+	const dispatch = useAppDispatch();
+	const { listOfUsers } = useAppSelector(
+		(state: RootState) => state.chatReducer
+	);
+	useEffect(() => {
+		dispatch(loadUserListsAction());
+	}, [dispatch]);
 
-interface propsType {
-	userData: IPersonalData[];
-}
-
-const index: React.FC<propsType> = (props) => {
+	// console.log(listOfUsers);
+	// if (listOfUsers.length === 0 || !listOfUsers) {
+	// 	return <div>LOADING...</div>;
+	// }
+	if (listOfUsers.length > 0) {
+		const firstUserOnList = listOfUsers[0];
+		router.push(`/chat/${firstUserOnList._id}`);
+	}
 	return (
-		<Fragment>
-			<ChatMain userData={props.userData} />
-		</Fragment>
+		<main className='flex w-screen h-screen py-4 bg-green-300'>
+			{/* <ChatDrawer />
+			<ChatSection /> */}
+			<div>LOADING...</div>
+		</main>
 	);
 };
 
-export async function getStaticProps(context) {
-	const userData = getAllDummyData();
-
-	return {
-		props: { userData }, // will be passed to the page component as props
-	};
-}
-
-export default index;
+export default ChatPage;

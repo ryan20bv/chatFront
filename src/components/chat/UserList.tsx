@@ -1,16 +1,19 @@
 import React from "react";
 
 import UserItem from "./UserItem";
+import {
+	useAppSelector,
+	RootState,
+} from "../../redux(toolkit)/store/indexStore";
 
-import { IPersonalData } from "../../typesFile/chatType";
-interface propsType {
-	userData: IPersonalData[];
-}
-const UserList: React.FC<propsType> = ({ userData }) => {
+const UserList = () => {
+	const { listOfUsers } = useAppSelector(
+		(state: RootState) => state.chatReducer
+	);
+
 	return (
-		// <section className={classes.user_list}>
 		<ul className=''>
-			{userData.map((user) => (
+			{listOfUsers.map((user) => (
 				<UserItem
 					key={user._id}
 					user={user}
