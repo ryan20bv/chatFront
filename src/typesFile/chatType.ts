@@ -10,6 +10,7 @@ export type IPersonalData = {
 	name: string;
 	email: string;
 	avatarUrl: string;
+	password: string;
 };
 
 // export interface IChats {
