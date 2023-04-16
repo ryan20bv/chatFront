@@ -5,8 +5,15 @@ export interface IChat {
 	message: string;
 }
 
-export interface IChats {
-	chats: IChat[];
-}
+export type IPersonalData = {
+	_id: string;
+	name: string;
+	email: string;
+	avatarUrl: string;
+};
+
+// export interface IChats {
+// 	chats: IChat[];
+// }
 
 // import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";

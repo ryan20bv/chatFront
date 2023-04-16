@@ -1,34 +1,30 @@
 import React from "react";
+import Image from "next/image";
+const randomNumber = () => {
+	return Math.ceil(Math.random() * 3).toString();
+};
+const DummyPerson = {
+	_id: "p1",
+	avatarUrl: "avatar" + randomNumber() + ".jpg",
+	name: "Mallory Diaz",
+	email: "mallorydiaz1337@test.com",
+};
 
-import classes from "./chatStyles/chatItem.module.scss";
-
-import { IChat } from "../../typesFile/chatType";
-
-interface prosType {
-	chat: IChat;
-}
-
-const ChatItem: React.FC<prosType> = ({ chat }) => {
-	const sendDeleteRequestToAPI = async (chatId: string) => {
-		const url = `/api/chatNext/${chatId}`;
-
-		const options = {
-			method: "DELETE",
-		};
-
-		const response = await fetch(url, options);
-	};
-	const deleteHandler = (id: string) => {
-		// console.log(id);
-		sendDeleteRequestToAPI(id);
-	};
+const ChatItem = () => {
 	return (
-		<li className={classes.item}>
-			<div>
-				<p>Sender: {chat.sender}</p>
-				<p>Receiver: {chat.receiver}</p>
-				<p>Message: {chat.message}</p>
-				{/* <button onClick={() => deleteHandler(chat._id)}>delete</button> */}
+		<li className='my-3'>
+			<div className='  w-3/4 flex  '>
+				<Image
+					src={`/images/avatar/${DummyPerson.avatarUrl}`}
+					alt='image'
+					width={100}
+					height={100}
+					className='rounded-full w-10 h-10'
+				/>
+				<p className='ml-3 border border-red-600 rounded-xl py-1 px-2'>
+					hi asd ad ad asd asdada sd asdasd ad ad asd as ad as ad asd asd asd a sas
+					ad s ad asd as da as asdasd asd asds asdasd sad asd asd
+				</p>
 			</div>
 		</li>
 	);

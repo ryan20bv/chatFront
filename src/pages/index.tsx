@@ -1,52 +1,24 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
+import Login from "../components/login/Login";
 
-import Chat from "../components/chat/Chat";
-
-import styles from "../styles/Home.module.css";
-import { IChats } from "../typesFile/chatType";
-
-import { GetStaticProps } from "next";
-
-const HomePage: React.FC<IChats> = ({ chats }) => {
+const HomePage = () => {
 	return (
 		<Fragment>
 			<Head>
-				<title>Simple Chat</title>
+				<title>Chat - Log in</title>
 				<meta
 					name='description'
-					content='Simple Chat app'
+					content='Chat Log in and registration'
 				/>
 				<meta
 					name='viewport'
 					content='width=device-width, initial-scale=1'
 				/>
 			</Head>
-			<main className={styles.main}>
-				<div>
-					<h1>Home Page</h1>
-					<Chat chats={chats} />
-				</div>
-			</main>
+			<Login />
 		</Fragment>
 	);
-};
-export const getStaticProps: GetStaticProps = async (context) => {
-	const url = "http://localhost:3000/api/chatNext";
-	const options = {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-		},
-	};
-	const response = await fetch(url, options);
-
-	const data = await response.json();
-	// console.log(data);
-	return {
-		props: { chats: data }, // will be passed to the page component as props
-		revalidate: 10, // In seconds
-	};
 };
 
 export default HomePage;
